@@ -7,8 +7,8 @@ export const routes: Routes = [
         path: '',
         component:MainPageComponent ,
     },
-    // {
-    //     path: 'home',
-    //     component:MainPageComponent
-    // },
+    {
+        path: 'login',
+        component:AuthComponent
+    },
 ];
