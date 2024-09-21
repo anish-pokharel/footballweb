@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <!-- Betting Form Card -->
+    <div class="card mt-5">
+        <div class="card-header text-center">
+            <h2>Place Your Bet</h2>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="bettingForm" (ngSubmit)="submitBettingForm()">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fixture" class="form-label">Fixture</label>
+                        <input type="text" id="fixture" class="form-control" formControlName="fixture"
+                            placeholder="Enter Fixture">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="selection" class="form-label">Selection</label>
+                        <input type="text" id="selection" class="form-control" formControlName="selection"
+                            placeholder="Enter Selection">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="league" class="form-label">League</label>
+                        <input type="text" id="league" class="form-control" formControlName="league"
+                            placeholder="Enter League">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="odds" class="form-label">Odds</label>
+                        <input type="text" id="odds" class="form-control" formControlName="odds"
+                            placeholder="Enter Odds">
+                    </div>
+                </div>
+
+                <div class="text-center col-lg-4 mt-4 mx-auto">
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Saved Bet Details Card -->
+    <div class="card mt-5">
+        <div class="card-header">
+            <h3>Saved Bet Details</h3>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">SN</th>
+                        <th scope="col">Fixture</th>
+                        <th scope="col">Selection</th>
+                        <th scope="col">League</th>
+                        <th scope="col">Odds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bet of betData; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ bet.fixture }}</td>
+                        <td>{{ bet.selection }}</td>
+                        <td>{{ bet.league }}</td>
+                        <td>{{ bet.odds }}</td>
+                        <td>
+                            <button class="btn btn-outline-warning btn-sm" (click)="editBet(bet)">Edit</button>
+                            <button class="btn btn-outline-danger btn-sm" (click)="deleteBet(bet._id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
